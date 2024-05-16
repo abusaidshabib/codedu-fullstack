@@ -1,0 +1,19 @@
+{% load static %}
+
+<div class="container pb-32">
+    <div class="pb-10 grid gap-3 text-center max-w-[1000px] m-auto">
+        <p class="secondary-title">Popular Courses</p>
+        <p>Courses could be offered in different formats including video lectures, interactive tutorials, written materials, quizzes, and assignments to cater to different learning styles.</p>
+    </div>
+    <!-- {{courses}} -->
+    <div class="rounded-xl">
+        {% for item in courses %}
+            <div class="bg-light_white justify-between grid sm:grid-cols-4 w-full p-5 border-b">
+                <p class="bg-transparent font-bold">{{ item.coursetitle|slice:":8" }}</p>
+                <p class="bg-transparent text-sm flex justify-between text-primary_c">{{item.instructor}}</p>
+                <p class="bg-transparent">{{item.level}}</p>
+                <button class="bg-neural_c px-3 py-1 rounded-lg">Take</button>
+            </div>
+        {% endfor %}
+    </div>
+</div>

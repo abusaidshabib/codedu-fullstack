@@ -1,0 +1,23 @@
+{% load static %}
+
+<div class="container py-32">
+    <div class="pb-10 grid gap-3 text-center max-w-[1000px] m-auto">
+        <p class="secondary-title">About Writings</p>
+    </div>
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-7">
+        {% for item in blogs %}
+        <div class="">
+            <div class="h-60 bg-transparent">
+                <img class="bg-transparent h-full w-full object-cover object-top" src="{% static 'assets/home/coding.jpg' %}" alt="">
+            </div>
+            <div class="grid gap-3 bg-transparent py-5">
+                <p class="bg-transparent text-sm"><b>Published Date: </b>{{item.publishedDate}}</p>
+                <p class="bg-transparent text-lg font-bold">{{item.title}}</p>
+                <div class="">
+                    <button class="text-start underline-button-wrapper">readme.</button>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>

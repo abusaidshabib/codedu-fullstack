@@ -1,0 +1,28 @@
+@use "../../../base/variable" as *;
+
+.trust_logo{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    color: $white;
+    width: 100%;
+    overflow: hidden;
+    gap: 40px;
+    animation: slideright 10s infinite;
+    padding: 0 50px;
+    
+    p{
+        background: transparent;
+        font-size: 28px;
+        font-weight: 700;
+    }
+}
+@keyframes slideright {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(0%);
+    }
+}

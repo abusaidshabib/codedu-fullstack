@@ -1,0 +1,33 @@
+@use "../../base/variable" as *;
+
+.underline-button-wrapper {
+    position: relative;
+    text-transform: capitalize;
+    padding: 0px 12px;
+    color: $black;
+    background-color: transparent;
+    transition: all 0.2s;
+
+    &::before{
+        position: absolute;
+        bottom: -5px;
+        left: 0;
+        width: 20px;
+        height: 2.5px;
+        content: "";
+        background: $black;
+        transition: all 0.2s;
+    }
+
+    &:hover::before{
+        height: 2.5px;
+        width: 100%;
+        background: $primary-color;
+        transition: all 0.2s;
+    }
+    
+    &:hover{
+        color: $primary-color;
+        transition: all 0.2s;
+    }
+}

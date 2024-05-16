@@ -1,0 +1,37 @@
+@mixin common($size, $weight, $height){
+    font-size: $size;
+    font-weight: $weight;
+    line-height: $height;
+}
+
+.subtitle{
+    @include common(16px, 500, 20px)
+}
+
+.primary-title{
+    @include common(72px, 700, 78px)
+}
+
+.primary-details{
+    @include common(16px, 500, 24px)
+}
+
+.secondary-title{
+    @include common(36px, 700, 41px)
+}
+
+.card-new-title{
+    @include common(20px, 700, 28px)
+}
+
+.neural-title{
+    @include common(28px, 600, 36px)
+}
+
+.card-subtitle{
+    @include common(14px, 500, 18px)
+}
+
+.card-title{
+    @include common(16px, 800, 21px)
+}

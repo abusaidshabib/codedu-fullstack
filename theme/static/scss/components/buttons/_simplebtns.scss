@@ -1,0 +1,45 @@
+@use "../../base/variable" as *;
+
+@mixin common-btn($color){
+    background-color: $color;
+    padding: 12px 30px;
+    border-radius: 10px;
+    font-weight: 600;
+    border: 2px solid $color;
+
+    &:hover{
+        border: 2px solid $black;
+        background-color: transparent;
+        transition-property: all;
+        transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+        transition-duration: 500ms;
+    }
+}
+
+.primary-btn{
+    @include common-btn($neural-color)
+}
+
+.secondary-btn{
+    @include common-btn($secondary-color)
+}
+
+.neural-btn{
+    font-size: 18px;
+    font-weight: 600;
+    padding: 12px 20px;
+    background-color: $primary-color;
+    border-radius: 50px;
+    z-index: 1;
+    position: relative;
+
+    &::before{
+        background-color: $primary-color;
+        content: " ";
+        z-index: -1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 50px;
+    }
+}

@@ -1,0 +1,34 @@
+{% load static %}
+
+<div class="container py-32 grid lg:grid-cols-2 gap-16">
+    <div class="grid grid-cols-2 gap-5">
+        <img class="rounded-2xl object-cover" src="{% static 'assets/home/coding.jpg' %}" alt="">
+        <img class="rounded-2xl object-cover" src="{% static 'assets/home/universities.jpg' %}" alt="">
+        <img class="rounded-2xl col-span-2 h-52 w-full object-cover" src="{% static 'assets/home/lovetolearn.jpg' %}" alt="">
+    </div>
+    <div class="grid gap-5">
+        <p class="secondary-title">Acquire Fresh Skills to Propel Your Career Forward</p>
+        <p class="pt-5">Embarking on the journey of skill acquisition is akin to opening doors to new opportunities and paving pathways for personal and professional growth.</p>
+        <ul class="grid gap-3">
+            <li class="flex justify-start items-center gap-5">
+                <img src="{% static 'assets/home/check.svg' %}" alt="" >
+                <p>Unlock Limitless Learning: Access 66,000+ Top Courses Today!</p>
+            </li>
+            <li class="flex justify-start items-center gap-5">
+                <img src="{% static 'assets/home/check.svg' %}" alt="" >
+                <p>Dive into Infinite Knowledge: Explore a Plethora of Educational Topics</p>
+            </li>
+            <li class="flex justify-start items-center gap-5">
+                <img src="{% static 'assets/home/check.svg' %}" alt="" >
+                <p>Discover Your Perfect Mentor: Find the Best-Qualified Teacher for Your Learning Journey</p>
+            </li>
+            <li class="flex justify-start items-center gap-5">
+                <img src="{% static 'assets/home/check.svg' %}" alt="" >
+                <p>Revolutionize Education Access: Transforming Learning into a Boundless Experience</p>
+            </li>
+        </ul>
+        <div>
+            <button class="text-left neural-btn text-white">View all topics</button>
+        </div>
+    </div>
+</div>

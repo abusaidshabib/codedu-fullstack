@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="grid lg:grid-cols-2 p-16">
+    <div class="h-full w-full hidden items-center lg:flex">
+        <img class="w-full object-cover rounded-2xl" src="{% static 'assets/login.jpg' %}" alt="" >
+    </div>
+    <div class="text-center grid place-items-center w-full">
+        <div>
+            <p class="secondary-title">Welcome Back</p>
+            <p class="pt-5">Please give a correct details to continue with google account.</p>
+            <form action="{% url 'login' %}" method="POST" class="py-8 grid place-items-start w-full" novalidate>
+                {% csrf_token %}
+                {% for fm in form %}
+                    {{fm.label_tag}}
+                    {{fm}} {{fm.errors|striptags}} <br/>
+                {% endfor %}
+                <div class="pt-3 w-full">
+                    <input class="text-center w-full bg-primary_c py-5 rounded-md text-xl text-white" type="submit" value="Login On Your Account">
+                </div>
+                {% if messages %}
+                    {% for message in messages %}
+                    <small>{{message}}</small>
+                    {% endfor %}
+                {% endif %}
+            </form>
+            <div class="flex items-center justify-center">
+                <p class="font-semibold">Already have an account?</p>
+                <a class="text-primary_c" href="">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

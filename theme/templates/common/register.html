@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="grid lg:grid-cols-2 p-16">
+    <div class="h-full w-full hidden items-center lg:flex">
+        <img class="w-full object-cover rounded-2xl" src="{% static 'assets/register.jpg' %}" alt="">
+    </div>
+    <div class="text-center grid place-items-center w-full">
+        <div>
+            <p class="secondary-title">Join with us</p>
+            <p class="pt-5">Please enter details and remember the password to join with us.</p>
+            {% if messages %}
+                {% for message in messages %}
+                    <p {% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</p>
+                {% endfor %}
+            {% endif %}
+            <form action="" method="post" class="py-8 grid place-items-start w-full" novalidate>
+                {% csrf_token %}
+                {% for field in form %}
+                    <label for="{{ field.id_for_label }}" class="block font-semibold">{{ field.label }}</label>
+                    {{ field }}
+                    <small class="text-red-500">{{ field.errors|striptags }}</small>
+                    <br/>
+                {% endfor %}
+                <div class="pt-3 w-full">
+                    <input class="text-center w-full bg-primary_c py-5 rounded-md text-xl text-white" type="submit" value="Register New User">
+                </div>
+                {% if form.non_field_errors %}
+                    {% for error in form.non_field_errors %}
+                        <small class="text-red-500">{{ error }}</small>
+                    {% endfor %}
+                {% endif %}
+            </form>
+            <div class="flex items-center justify-center">
+                <p class="font-semibold">Don't have an account?</p>
+                <a class="text-primary_c" href="{% url 'register' %}">Sign up for free</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,27 @@
+{% load static %}
+
+<div class="container pb-32">
+    <div class="pb-10 grid gap-3 text-center max-w-[1000px] m-auto">
+        <p class="secondary-title">Explore courses</p>
+        <p>There should be a wide range of courses available, covering various subjects such as technology, arts, humanities, sciences, business, and more. Courses could be offered in different formats including video lectures, interactive tutorials, written materials, quizzes, and assignments to cater to different learning styles.</p>
+    </div>
+    <!-- {{courses}} -->
+    <div class="grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 gap-7">
+        {% for item in courses %}
+            <div class="rounded-xl bg-light_white flex justify-between flex-col hover:shadow-xl">
+                <div class="h-40 bg-transparent">
+                    <img class="rounded-t-xl bg-transparent h-full w-full object-cover object-top" src="{% static 'assets/home/coding.jpg' %}" alt="">
+                </div>
+                <div class="p-5 grid gap-3 bg-transparent">
+                    <p class="bg-transparent text-sm flex justify-between"><span class="text-primary_c bg-transparent">{{item.instructor}}</span> <span class="bg-transparent">{{item.enrolled}}</span></p>
+                    <p class="bg-transparent font-bold">{{item.coursetitle}}</p>
+                    <p class="bg-transparent"><b class="bg-transparent">Rating:</b> {{item.rating}}</p>
+                </div>
+                <div class="border-t bg-transparent p-5 flex justify-between">
+                    <p class="bg-transparent">{{item.level}}</p>
+                    <button class="bg-neural_c px-3 py-1 rounded-lg">Take</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</div>
