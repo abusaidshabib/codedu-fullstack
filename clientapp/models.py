@@ -50,3 +50,14 @@ class User(AbstractBaseUser):
 
     def has_module_perms(self, app_label):
         return True
+
+class BaseModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+
+class Course(models.Model):
+    instructor = models.CharField(max_length=60)
+    title = models.CharField(max_length=150, unique=True)
+    rating = models.FloatField()
+    enrolled = models.BigIntegerField()

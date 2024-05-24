@@ -1,0 +1,13 @@
+{% load static %}
+
+<nav class="sticky min-w-60 h-screen top-0 left-0 text-black p-5 border-r-2">
+    <ul class="">
+        {% for item in menu_items %}
+            <li class="pt-3 {% if request.resolver_match.url_name == item.url_name %} active {% endif %}">
+                <a class="capitalize" href="{% url item.url_name %}">
+                    {{ item.name }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>

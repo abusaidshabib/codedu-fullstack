@@ -1,0 +1,12 @@
+{% extends 'dashboardbase.html' %}
+{% load static %}
+
+{% block content %}
+
+    <div class="p-10">
+        {{ form.as_p }}
+        <!-- You can access additional context data here -->
+        <p>Additional context: {{ some_key }}</p>
+    </div>
+
+{% endblock %}

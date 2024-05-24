@@ -27,8 +27,10 @@
 
 	<body >
         <div class="bg-light_white">
-            {% include "dashboard/components/sidebar.html" %}
-            {% block content %} {% endblock %}
+			<div class="flex">
+				{% include "common/sidebar.html" %}
+				{% block content %} {% endblock %}
+			</div>
         </div>
 		<!-- Django script -->
 		<script src="{% static 'js/navmenu.js' %}"></script>

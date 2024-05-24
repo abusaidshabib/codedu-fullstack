@@ -993,6 +993,10 @@ select {
   width: 100%;
 }
 
+.min-w-60 {
+  min-width: 15rem;
+}
+
 .max-w-2xl {
   max-width: 42rem;
 }
@@ -1147,6 +1151,10 @@ select {
   border-top-width: 1px;
 }
 
+.border-r-2 {
+  border-right-width: 2px;
+}
+
 .border-none {
   border-style: none;
 }
@@ -1218,6 +1226,10 @@ select {
 
 .p-5 {
   padding: 1.25rem;
+}
+
+.p-10 {
+  padding: 2.5rem;
 }
 
 .px-10 {

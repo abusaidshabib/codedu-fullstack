@@ -7,6 +7,7 @@ from django.contrib.auth import login
 # Created files
 from .forms import RegistrationForm, LoginForm
 from . import static_data
+from . import models
 
 # Create your views here.
 context = {'menu_items': static_data.menu_items,'courses':static_data.courses, 'blogs': static_data.blogs}
@@ -30,6 +31,11 @@ class BlogView(View):
 class FaqView(View):
     def get(self, request):
         return render(request, 'clientapp/faq.html', context)
+
+class CourseView(View):
+    def get(self, request):
+        
+        return render(request, 'clientapp/course.html', context)
 
 class LoginView(View):
     template_name = 'common/login.html'

@@ -1,10 +1,11 @@
 menu_items = (
     {'id':1, "name": "home", "url_name": "main_home"},
     {'id':2, "name": "categories", "url_name": "main_categories"},
-    {'id':3, "name": "about", "url_name": "main_about"},
-    {'id':4, "name": "blog", "url_name": "main_blog"},
-    {'id':5, "name": "faq", "url_name": "main_faq"},
-    {'id':6, "name": "dashboard", "url_name":"admin_dashboard"}
+    {'id':3, "name": "course", "url_name": "main_course"},
+    {'id':4, "name": "about", "url_name": "main_about"},
+    {'id':5, "name": "blog", "url_name": "main_blog"},
+    {'id':6, "name": "faq", "url_name": "main_faq"},
+    {'id':7, "name": "dashboard", "url_name":"admin_dashboard"}
 )
 
 courses = (
