@@ -1,13 +1,20 @@
 from django.db import models
-
 from django.contrib.auth.models import PermissionsMixin, AbstractBaseUser
 from django.contrib.auth.validators import ASCIIUsernameValidator
 from django.utils.translation import gettext_lazy as _
 from django.utils import timezone
+from django.utils.text import slugify
 
 from .managers import CustomUserManager
 
-class User(AbstractBaseUser):
+class BaseModel(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        abstract = True
+
+class UserModel(AbstractBaseUser, BaseModel):
     nickname_validator = ASCIIUsernameValidator()
     firstname = models.CharField(
         verbose_name="first name",
@@ -51,13 +58,35 @@ class User(AbstractBaseUser):
     def has_module_perms(self, app_label):
         return True
 
-class BaseModel(models.Model):
-    created_at = models.DateTimeField(auto_now_add=True)
-    updated_at = models.DateTimeField(auto_now=True)
+class TopicModel(models.Model):
+    name = models.CharField(_("course Topics"), max_length=100)
 
-
-class Course(models.Model):
-    instructor = models.CharField(max_length=60)
+class CourseModel(models.Model):
     title = models.CharField(max_length=150, unique=True)
-    rating = models.FloatField()
-    enrolled = models.BigIntegerField()
+    instructor = models.ManyToManyField(UserModel)
+    description = models.TextField()
+    LEVEL_OPTIONS = [
+        ('B', _('Beginner')),
+        ('I', _('Intermediate')),
+        ('A', _('Advanced')),
+    ]
+    level = models.CharField(_("Level"), max_length=50, choices=LEVEL_OPTIONS, default='B')
+    topics = models.ManyToManyField(TopicModel, verbose_name=_("Course Topics"), blank=True)
+    price = models.FloatField(_("Course Price"))
+    slug = models.SlugField(blank=True, max_length=80, unique=True)
+    duration = models.IntegerField(_("Course Duration"))
+
+    def save(self, *args, **kwargs):
+        if not self.slug:
+            self.slug = slugify(self.title, allow_unicode=True)
+
+    def __str__(self):
+        return self.title
+
+class LessonModel(BaseModel):
+    course = models.ForeignKey(CourseModel, on_delete=models.CASCADE)
+    title = models.CharField(_(""), max_length=150)
+    content = models.TextField(_(""))
+
+    def __str__(self):
+        return self.title

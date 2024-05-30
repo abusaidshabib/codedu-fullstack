@@ -22,6 +22,7 @@ class AddBlogsView(View):
 class AddCoursesView(FormView):
     template_name = 'dashboard/addcourses.html'
     form_class = CoursesForm
+    success_url = reverse_lazy('successful')
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)

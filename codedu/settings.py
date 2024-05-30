@@ -83,7 +83,7 @@ DATABASES = {
     }
 }
 
-AUTH_USER_MODEL = "clientapp.User"
+AUTH_USER_MODEL = "clientapp.UserModel"
 
 
 # Password validation

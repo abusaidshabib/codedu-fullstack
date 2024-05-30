@@ -5,7 +5,7 @@ from django.core.exceptions import ValidationError
 from django.contrib.auth.forms import ReadOnlyPasswordHashField
 from django.utils.translation import gettext_lazy as _
 
-from .models import User
+from .models import UserModel
 
 class RegistrationForm(UserCreationForm):
     """
@@ -44,7 +44,7 @@ class RegistrationForm(UserCreationForm):
     }
 
     class Meta:
-        model = User
+        model = UserModel
         fields = ['firstname', 'lastname', "nickname", "date_of_birth","email","password1","password2", "is_active", "is_staff", "is_student", "is_teacher"]
         labels = {
             'firstname': 'First Name',
